@@ -32,22 +32,7 @@ abstract class Model
             // variable var contains the data forms objets
             $var[] = new $obj($data);
         }
+        return $var;
+        $req->closeCursor();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
