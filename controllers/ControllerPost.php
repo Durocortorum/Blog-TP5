@@ -11,8 +11,7 @@ class ControllerPost
     public function __construct()
     {
             extract($_GET);
-            
-            if(isset($view))
+             if(isset($view))
             {
                 $this->post();
             }
@@ -44,5 +43,11 @@ class ControllerPost
         $this->_view = new View('OnePost');
         $this->_view->generate(array('post' => $post, 'commentaires' => $commentaires, 'commPosted' => $commPosted));
     }
+
+
+
     
+
+
 }
+

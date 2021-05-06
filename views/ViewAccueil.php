@@ -12,7 +12,6 @@
       <?php
       foreach ($posts as $post) :
       ?>
-
         <div class="col-lg-4 col-md-6">
           <div class="card h-100">
             <!-- single-post -->
@@ -36,4 +35,5 @@
     </div>
   </div>
 </section>
+
 

@@ -1,13 +1,13 @@
 <?php
-//Recover SESSION
+//RECUPERATION DE LA SESSION
 session_start();
 
 class View
 {
-  //file view
+  //FICHIER DE LA VUE
   private $_file;
 
-  //Title Page
+  //TITRE DE LA PAGE
   private $_t;
 
   function __construct($action)
@@ -15,9 +15,9 @@ class View
     $this->_file = 'views/view'.$action.'.php';
   }
 
-  //Create function generate and display the view
+  //CREATION D'UNE FONCTION QUI VA GENERER ET AFFICHER LA VUE
   public function generate($data){
-    //content send
+    //DEFINITION DU CONTENU A ENVOYER
     $content = $this->generateFile($this->_file, $data);
 
     //TEMPLATE
@@ -25,16 +25,17 @@ class View
     echo $view;
   }
 
+
   private function generateFile($file, $data){
     if (file_exists($file)) {
       extract($data);
 
-      //to start temporisation
+      //commencer la temporisation
       ob_start();
 
       require $file;
 
-      //stop the temporisation
+      //arreter la temporisation
      return ob_get_clean();
     }
     else {
@@ -42,26 +43,5 @@ class View
 
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
-
-
-
-
-
-
-
-
- ?>

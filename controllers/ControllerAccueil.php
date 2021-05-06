@@ -14,52 +14,52 @@ class ControllerAccueil
             throw new \Exception("Page introuvable", 1);
         }
         else{
-            $this->acceuil();
+            $this->accueil();
         }
     }
 
-    public function acceuil()
+    private function accueil()
     {
         extract($_POST);
-        // form contact
+        //FORMULAIRE DE CONTACT ? SOUMIS
         if(isset($form_button))
         {
-            // Vérif Firstname
-            if(isset($firstname_name) && strlen($firstname_name) > 6 && strlen($firstname_name) < 100)
+            //VERIFICATION: PRENOM
+            if(isset($nom_prenom) && strlen($nom_prenom) > 5 && strlen($nom_prenom) < 100)
             {
-                $firstname_name = htmlspecialchars($firstname_name);
-
-                // Vérif Email
+                $nom_prenom = htmlspecialchars($nom_prenom); 
+                
+                //VERIFICATION: EMAIL
                 if(isset($email) && filter_var($email, FILTER_VALIDATE_EMAIL))
                 {
                     $email = htmlspecialchars($email);
 
-                    // Vérif message
+                    //VERIFICATION: MESSAGE
                     if(isset($message) && strlen($message) > 20 && strlen($message) < 2000)
                     {
-                        $message = htmlspecialchars($message) . "\n\n" . $firstname_name. "\n" . $email;
+                        $message = htmlentities($message) . "\n\n" . $nom_prenom. "\n" . $email;
 
-                        // Send Email
+                        //ENVOI DU MAIL
                         $to      = 'micheldescotes65@gmail.com';
                         $subject = 'Contact Blog';
-                        $Headers = 'From: ' .$firstname_name . "\r\n";
-
-                        mail($to, $subject, $message, $Headers);
+                        $headers = 'From: ' .$nom_prenom . "\r\n";
+                   
+                        mail($to, $subject, $message, $headers);
                         $return_msg = "Le message a bien été envoyé !";
                     }
                     else
                     {
-                        $return_msg = "Le champ message n'est pas renseigné/Valide !";
+                        $return_msg = "Le champ Message n'est pas renseigné/valide !";
                     }
                 }
                 else
                 {
-                    $return_msg = "Le champ email n'est pas renseigné/Valide !";
+                    $return_msg = "Le champ email n'est pas renseigné/valide !";
                 }
             }
             else
             {
-                $return_msg = "Le champ first-name n'est pas renseigné/Valide !";
+                $return_msg = "Le champ Nom-Prénom n'est pas renseigné/valide !";
             }
         }
         else
@@ -71,7 +71,9 @@ class ControllerAccueil
 
         $this->_postManager = new PostManager();
         $posts = $this->_postManager->getPosts();
+        $this->_accueilManager = new AccueilManager();
+        $accueilInfos = $this->_accueilManager->getAccueilInfos();
         $this->_view = new View('Accueil');
-        $this->_view->generate(array('posts' => $posts));
+        $this->_view->generate(array('accueilInfos' => $accueilInfos, 'form_msg' => $return_msg, 'posts' => $posts));
     }
 }

@@ -2,51 +2,91 @@
 
 abstract class Model
 {
+
     private static $_bdd;
 
-    // Connexion BDD
-    private static function setBdd(){
-        self::$_bdd = new PDO('mysql:host=localhost;dbname=blog-tp5;charset=utf8;port=3308', 'root', '');
+    //CONNEXION BDD
+    private static function setBdd()
+    {
+        self::$_bdd = new PDO('mysql:host=localhost;dbname=essai;charset=utf8;port=3308', 'root', '');
 
-        // error management constant PDO
+        //GESTION DES ERREURS AVEC CONSTANTES PDO
         self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 
-    // function connect bdd
-    protected function getBdd(){
-        if(self::$_bdd == null){
+    //FONCTION DE CONNEXION BDD
+    protected function getBdd()
+    {
+        if (self::$_bdd == null) {
             self::setBdd();
-            Return self::$_bdd;
+            return self::$_bdd;
         }
     }
 
-    // retrieve all the data from the table
-    protected function getAll($table, $obj){
+
+    //CREATION DE LA METHODE
+    //DE RECUPERATION DES INFOS DE LA PAGE D'ACCUEIL
+    protected function getAccueil($table, $obj)
+    {
         $this->getBdd();
         $var = [];
-        $req = self::$_bdd->prepare('SELECT * FROM '.$table.' ORDER BY id DESC');
+        $req = self::$_bdd->prepare('SELECT * FROM ' . $table);
         $req->execute();
-
-        // create variable data contains the data
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)){
-            // variable var contains the data forms objets
+        //CREATION DE LA VARIABLE
+        //QUI VA CONTENIR LES DONNEES
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            //VAR CONTIENDRA LES DONNEES SOUS FORME D'OBJET
             $var[] = new $obj($data);
         }
         return $var;
         $req->closeCursor();
     }
 
+    protected function getAll($table, $obj)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare('SELECT * FROM ' . $table . ' ORDER BY id desc');
+        $req->execute();
+
+        //on crée la variable data qui
+        //va cobntenir les données
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            // var contiendra les données sous forme d'objets
+            $var[] = new $obj($data);
+        }
+
+        return $var;
+        $req->closeCursor();
+    }
+
     protected function getOne($table, $obj, $id)
     {
-      $this->getBdd();
-      $var = [];
-      $req = self::$_bdd->prepare("SELECT id, author, title, chapo, content, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') AS date FROM " .$table. " WHERE id = ?");
-      $req->execute(array($id));
-      $data = $req->fetch(PDO::FETCH_ASSOC);
-      $var = new $obj($data);
-      
-  
-      return $var;
-      $req->closeCursor();
+        $this->getBdd();
+        //$var = [];
+        $req = self::$_bdd->prepare("SELECT id, author, title, chapo, content, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') AS date FROM " . $table . " WHERE id = ?");
+        $req->execute(array($id));
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+        $var = new $obj($data);
+
+
+        return $var;
+        $req->closeCursor();
+    }
+
+
+    protected function getCommentaires($id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE post_id='" . $id . "' AND statut='Valide'");
+        $req->execute();
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            // var contiendra les données sous forme d'objets
+            $var[] = new Commentaire($data);
+        }
+
+        return $var;
+        $req->closeCursor();
     }
 }

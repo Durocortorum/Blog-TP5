@@ -4,16 +4,18 @@
 class PostManager extends Model
 {
 
-  //create the function that will recover
-  // all the articles in the database
+  //gréer la fonction qui va recuperer
+  //tous les articles dans la bdd
   public function getPosts(){
     return $this->getAll('posts', 'Post');
   }
 
   public function getPost($id){
-    return $this->getOne('posts', 'Post', $id);
-  }
+      return $this->getOne('posts', 'Post', $id);
+    }
 
+
+    
 }
 
-
+ ?>
