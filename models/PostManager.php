@@ -13,7 +13,7 @@ class PostManager extends Model
   public function getPost($id){
     return $this->getOne('posts', 'Post', $id);
   }
-  
+
 }
 
 

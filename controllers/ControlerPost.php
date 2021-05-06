@@ -11,15 +11,8 @@ class ControllerPost
     public function __construct()
     {
             extract($_GET);
-            if(isset($admin) && $_SESSION['redacteur'] == "true")
-            {
-                $this->listPost();
-            }
-            else if(isset($update) && $_SESSION['redacteur'] == "true")
-            {
-                $this->updatePost();
-            }
-            else if(isset($view))
+            
+            if(isset($view))
             {
                 $this->post();
             }
@@ -51,15 +44,5 @@ class ControllerPost
         $this->_view = new View('OnePost');
         $this->_view->generate(array('post' => $post, 'commentaires' => $commentaires, 'commPosted' => $commPosted));
     }
-
-
-
-        //RECUPERATION ET AFFICHAGE DU POST ET DE SES COMMENTAIRES
-        // $commentaires = $this->_commentaireManager->getComm($_GET['id']);
-        $post = $this->_postManager->getPost($id);
-        $this->_view = new View('UpdatePost');
-        $this->_view->generate(array('post' => $post, 'form' => $form)); 
-    }
     
 }
-?>
