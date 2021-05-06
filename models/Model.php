@@ -35,4 +35,18 @@ abstract class Model
         return $var;
         $req->closeCursor();
     }
+
+    protected function getOne($table, $obj, $id)
+    {
+      $this->getBdd();
+      $var = [];
+      $req = self::$_bdd->prepare("SELECT id, author, title, chapo, content, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') AS date FROM " .$table. " WHERE id = ?");
+      $req->execute(array($id));
+      $data = $req->fetch(PDO::FETCH_ASSOC);
+      $var = new $obj($data);
+      
+  
+      return $var;
+      $req->closeCursor();
+    }
 }

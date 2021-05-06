@@ -10,7 +10,10 @@ class PostManager extends Model
     return $this->getAll('posts', 'Post');
   }
 
-
+  public function getPost($id){
+    return $this->getOne('posts', 'Post', $id);
+  }
+  
 }
 
 
