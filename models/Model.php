@@ -23,7 +23,6 @@ abstract class Model
         }
     }
 
-
     //CREATION DE LA METHODE
     //DE RECUPERATION DES INFOS DE LA PAGE D'ACCUEIL
     protected function getAccueil($table, $obj)
@@ -74,6 +73,65 @@ abstract class Model
         $req->closeCursor();
     }
 
+    protected function getUserInfo($user_id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("SELECT * FROM users WHERE id='" . $user_id . "'");
+        $req->execute();
+
+        //on crée la variable data qui
+        //va cobntenir les données
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            // var contiendra les données sous forme d'objets
+            $var[] = new User($data);
+        }
+
+        return $var;
+        $req->closeCursor();
+    }
+
+    protected function getAllUsersInfos()
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("SELECT * FROM users");
+        $req->execute();
+
+        //on crée la variable data qui
+        //va cobntenir les données
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            // var contiendra les données sous forme d'objets
+            $var[] = new User($data);
+        }
+
+        return $var;
+        $req->closeCursor();
+    }
+
+    protected function eraseUser($id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("DELETE FROM users WHERE id='" . $id . "'");
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
+
+    //UPDATE USER
+    protected function updateUserInfos($email, $nom, $prenom, $password, $id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("UPDATE users SET email='" . $email . "', prenom='" . $prenom . "', nom='" . $nom . "', password='" . $password . "' WHERE id='" . $id . "'");
+        $req->execute();
+
+        return "true";
+        $req->closeCursor();
+    }
+
+
     //NEW COMM
     protected function newPostComm($auteur, $post_id, $contenu, $date, $auteur_id, $status)
     {
@@ -85,7 +143,7 @@ abstract class Model
         $req->closeCursor();
     }
 
-    
+
     protected function getCommentaires($id)
     {
         $this->getBdd();
