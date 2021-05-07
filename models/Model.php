@@ -8,7 +8,7 @@ abstract class Model
     //CONNEXION BDD
     private static function setBdd()
     {
-        self::$_bdd = new PDO('mysql:host=localhost;dbname=essai;charset=utf8;port=3308', 'root', '');
+        self::$_bdd = new PDO('mysql:host=localhost;dbname=blog-tp5;charset=utf8;port=3308', 'root', '');
 
         //GESTION DES ERREURS AVEC CONSTANTES PDO
         self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
@@ -74,7 +74,18 @@ abstract class Model
         $req->closeCursor();
     }
 
+    //NEW COMM
+    protected function newPostComm($auteur, $post_id, $contenu, $date, $auteur_id, $status)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("INSERT INTO commentaires (auteur, post_id, contenu, date, user_id, statut) VALUES ('" . $auteur . "', '" . $post_id . "', '" . $contenu . "', '" . $date . "', '" . $auteur_id . "', '" . $status . "')");
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
 
+    
     protected function getCommentaires($id)
     {
         $this->getBdd();
