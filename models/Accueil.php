@@ -23,26 +23,11 @@ class Accueil
     }
   }
 
-    
   //SETTERS
   public function setTitle($title)
   {
     if (is_string($title)) {
       $this->_title = $title;
-    }
-  }
-
-   public function setDescription($description)
-  {
-    if (is_string($description)) {
-      $this->_description = $description;
-    }
-  }
-
-   public function setNom_prenom($nom_prenom)
-  {
-    if (is_string($nom_prenom)) {
-      $this->_nom_prenom = $nom_prenom;
     }
   }
     
@@ -53,25 +38,5 @@ class Accueil
     return $this->_title;
   }
     
-  public function description()
-  {
-    return $this->_description;
-  }
-
-
-
-  public function nom_prenom()
-  {
-    return $this->_nom_prenom;
-  }
 }
 
-
-
-
-
-
-
-
-
- ?>
