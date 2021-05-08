@@ -128,7 +128,19 @@ abstract class Model
         $req->closeCursor();
     }
 
+    //INSCRIPTION USER
+    protected function new_user($email, $nom, $prenom, $password)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("INSERT INTO users (email, prenom, nom, password) VALUES ('" . $email . "', '" . $prenom . "', '" . $nom . "', '" . $password . "')");
+        $req->execute();
 
+        return "true";
+        $req->closeCursor();
+    }
+
+    //DELETE USER
     protected function eraseUser($id)
     {
         $this->getBdd();
