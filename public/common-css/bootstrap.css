@@ -2241,6 +2241,7 @@ pre code {
 }
 
 .form-control {
+  text-align:center;
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
