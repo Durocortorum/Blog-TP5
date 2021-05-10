@@ -1,5 +1,4 @@
 <br><br>
-<center>
     <h2><?= $title; ?></h2>
     <br>
     <br>
@@ -65,9 +64,5 @@
          }
          ?>
     </table>
-         
-         
-         
-     
+
   </div>
-</center>

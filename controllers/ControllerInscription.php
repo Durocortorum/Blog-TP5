@@ -74,7 +74,7 @@ class ControllerInscription
             }
             else
             {
-                $return_msg ="<i>Remplissez le Formulaie</i>";
+                $return_msg ="<i>Remplissez le Formulaire</i>";
                 $form = 1;
 
             }
