@@ -190,4 +190,39 @@ abstract class Model
         return $var;
         $req->closeCursor();
     }
+
+    protected function getAllCommToValidate()
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE statut='En Attente'");
+        $req->execute();
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            // var contiendra les données sous forme d'objets
+            $var[] = new Commentaire($data);
+        }
+
+        return $var;
+        $req->closeCursor();
+    }
+
+    protected function setCommValid($id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("UPDATE commentaires SET statut='Valide' WHERE id='".$id."'");
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
+    
+    protected function eraseComm($id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("DELETE FROM commentaires WHERE id='".$id."'");
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
 }
