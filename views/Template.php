@@ -116,7 +116,7 @@
 	</footer>
 
 
-	<!-- SCIPTS -->
+	<!-- SCRIPTS -->
 
 	<script src="public/common-js/jquery-3.1.1.min.js"></script>
 
