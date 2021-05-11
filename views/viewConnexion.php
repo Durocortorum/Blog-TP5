@@ -1,4 +1,4 @@
-<div class="slider"></div><!-- slider -->
+<div class="slider"></div>
 
 <section class="blog-area section">
     <div class="container">
@@ -7,7 +7,6 @@
             <form method="post" action="Connexion">
                 <?php if ($connexion[0] == "retryForm") {
                     echo "Identifiants introuvables<br>";
-                    //Inscrivez vous
                 }
                 ?>
                 <label for="email">Email:</label>
@@ -18,5 +17,5 @@
 
                 <br /><input type="submit" value="OK">
             </form>
-        </div><!-- container -->
-</section><!-- section -->
+        </div>
+</section>

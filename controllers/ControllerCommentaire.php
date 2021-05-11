@@ -13,8 +13,7 @@ class ControllerCommentaire
         //PAGE RESERVEE AUX ADMINS
         if (isset($_SESSION['admin']) && $_SESSION['admin'] != "true" || !isset($_SESSION['id'])) {
             throw new \Exception("Page Introuvable");
-        }
-        else{
+        } else {
             $this->commentaire();
         }
     }
@@ -24,15 +23,13 @@ class ControllerCommentaire
         extract($_POST);
         extract($_GET);
         $this->_commentaireManager = new CommentaireManager;
-        
+
         //VALIDATION D'UN COMMENTAIRE
-        if(isset($id) && $del == 0)
-        {
+        if (isset($id) && $del == 0) {
             $this->_commentaireManager->validAComm($id);
         }
         //SUPPRESION D'UN COMMENTAIRE
-        else if(isset($id) && $del == 1)
-        {
+        else if (isset($id) && $del == 1) {
             $this->_commentaireManager->deleteAComm($id);
         }
         $commentaires = $this->_commentaireManager->getAllCommToValid();

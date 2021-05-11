@@ -1,8 +1,6 @@
 <div class="slider">
     <div class="display-table  center-text">
-        <h1 class="title display-table-cell"><b>
-                <!-- -->
-            </b></h1>
+        <h1 class="title display-table-cell"></h1>
     </div>
     <br><br>
 

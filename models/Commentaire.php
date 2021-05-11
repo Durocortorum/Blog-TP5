@@ -9,16 +9,18 @@ class Commentaire
   private $_contenu;
   private $_date;
   private $_post_id;
-  
 
-  public function __construct(array $data){
+
+  public function __construct(array $data)
+  {
     $this->hydrate($data);
   }
 
   //hdratation
-  public function hydrate(array $data){
+  public function hydrate(array $data)
+  {
     foreach ($data as $key => $value) {
-      $method = 'set'.ucfirst($key);
+      $method = 'set' . ucfirst($key);
       if (method_exists($this, $method)) {
         $this->$method($value);
       }
@@ -42,14 +44,14 @@ class Commentaire
     }
   }
 
-   public function setAuteur_id($auteur_id)
+  public function setAuteur_id($auteur_id)
   {
     if (is_string($auteur_id)) {
       $this->_auteur_id = $auteur_id;
     }
   }
 
-   public function setContenu($contenu)
+  public function setContenu($contenu)
   {
     if (is_string($contenu)) {
       $this->_contenu = $contenu;
@@ -58,20 +60,17 @@ class Commentaire
 
   public function setDate($date)
   {
-      $this->_date = $date;
-
+    $this->_date = $date;
   }
-    
-      public function setStatut($statut)
-  {
-      $this->_statut = $statut;
 
+  public function setStatut($statut)
+  {
+    $this->_statut = $statut;
   }
-    
-         public function setPost_id($post_id)
-  {
-      $this->_post_id = $post_id;
 
+  public function setPost_id($post_id)
+  {
+    $this->_post_id = $post_id;
   }
 
   //getters
@@ -84,30 +83,29 @@ class Commentaire
   {
     return $this->_auteur;
   }
-    
+
   public function auteur_id()
   {
     return $this->_auteur_id;
   }
-    
+
   public function contenu()
   {
     return $this->_contenu;
   }
-    
+
   public function date()
   {
     return $this->_date;
   }
 
-      public function post_id()
+  public function post_id()
   {
     return $this->_post_id;
   }
-    
+
   public function statut()
   {
     return $this->_statut;
   }
 }
-

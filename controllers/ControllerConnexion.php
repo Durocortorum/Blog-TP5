@@ -16,8 +16,7 @@ class ControllerConnexion
 
         if (isset($url) && count($url) < 1) {
             throw new \Exception("Page Introuvable");
-        }
-        else {
+        } else {
             $this->connexion();
         }
     }
@@ -27,7 +26,7 @@ class ControllerConnexion
     {
         extract($_POST);
         extract($_GET);
-        if(isset($email) && isset($password)) {
+        if (isset($email) && isset($password)) {
             // var_dump("ok");
             $this->_connexionManager = new ConnexionManager;
             $this->_email = $email;
@@ -36,9 +35,8 @@ class ControllerConnexion
 
             //SI: IDENTIFIANTS OK
             //RENVOI VERS PAGE D'ACCUEIL
-            if(isset($connexion[0]))
-            {
-                $_SESSION['id'] = $connexion[0]->id(); 
+            if (isset($connexion[0])) {
+                $_SESSION['id'] = $connexion[0]->id();
                 $this->_userManager = new UserManager;
                 $user = $this->_userManager->getInfos($_SESSION['id']);
                 $_SESSION['nom'] = $user[0]->nom();
@@ -49,22 +47,19 @@ class ControllerConnexion
             }
             //SI: IDENTIFIANTS KO
             //RETOUR VERS FORMULAIRE
-            else if(!isset($connexion[0])){
+            else if (!isset($connexion[0])) {
                 $this->connexionForm("retryForm");
-            }
-            else {
+            } else {
                 $this->_view = new View('Connexion');
                 $this->_view->generate(array('connexion' => $connexion));
             }
         }
         //DECONNEXION
-        else if(isset($disconnect))
-        {
+        else if (isset($disconnect)) {
             $this->deconnexion();
         }
         //FORMULAIRE DE CONNEXION
-        else
-        {
+        else {
             $this->connexionForm("firstForm");
         }
     }
@@ -87,5 +82,4 @@ class ControllerConnexion
         $this->_view = new View('Deconnexion');
         $this->_view->generate(array('connexion' => $connexion));
     }
-
 }

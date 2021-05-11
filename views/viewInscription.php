@@ -1,4 +1,4 @@
-<div class="slider"></div><!-- slider -->
+<div class="slider"></div>
 
 <section class="blog-area section">
     <div class="container">
@@ -33,5 +33,5 @@
         <?php
                 }
         ?>
-        </div><!-- container -->
-</section><!-- section -->
+        </div>
+</section>
