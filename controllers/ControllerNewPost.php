@@ -34,12 +34,12 @@ class ControllerNewPost
                 $title = htmlspecialchars($title);
                 
                 //VERIFICATION : CHAPO
-                if(isset($chapo) && strlen($chapo) > 2 && strlen($chapo) < 1000)
+                if(isset($chapo) && strlen($chapo) > 20 && strlen($chapo) < 1000)
                 {
                     $chapo = htmlspecialchars($chapo);
                     
                     //VERIFICATION : CONTENU
-                    if(isset($content) && strlen($content) > 1 && strlen($content) < 50000)
+                    if(isset($content) && strlen($content) > 100 && strlen($content) < 50000)
                     {
                         $content = htmlspecialchars($content);
                         $return_msg = "Le nouveau post a bien été envoyé !";

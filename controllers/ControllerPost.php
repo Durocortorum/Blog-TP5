@@ -51,9 +51,15 @@ class ControllerPost
         //LISTE DES POSTS : ADMINS
         $this->_postManager = new postManager;
 
+        //SI : SUPPRESSION D'UN POST
+        if(isset($id_del) && $del == 1)
+        {
+            $this->_postManager->deleteAPost($id_del);
+        }
+
         $postInfos = $this->_postManager->getAllPostsInfo();
         $this->_view = new View('Post');
-        $this->_view->generate(array('postInfos' => $postInfos, 'form_msg' => 'Liste Posts', 'form' => '0', 'title' => 'Espace Admin'));
+        $this->_view->generate(array('postInfos' => $postInfos, 'form_msg' => 'Liste Posts', 'form' => '0', 'title' => 'Espace Admin')); 
     }
 
     private function updatePost()
