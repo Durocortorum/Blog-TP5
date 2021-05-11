@@ -247,12 +247,23 @@ abstract class Model
     {
         $this->getBdd();
         $var = [];
-        $req = self::$_bdd->prepare("DELETE FROM posts WHERE id='".$id."'");
+        $req = self::$_bdd->prepare("DELETE FROM posts WHERE id='" . $id . "'");
         $req->execute();
         return "true";
         $req->closeCursor();
     }
-    
+
+    protected function createPost($title, $chapo, $content, $date, $auteur_id, $auteur)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("INSERT INTO posts (title, chapo, content, date, author_id, author) VALUES ('" . $title . "', '" . $chapo . "', '" . $content . "', '" . $date . "', '" . $auteur_id . "', '" . $auteur . "')");
+        //var_dump($req);
+
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
 
     protected function updateAPost($id, $chapo, $content, $date, $title)
     {

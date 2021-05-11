@@ -21,6 +21,11 @@ class PostManager extends Model
     return $this->getAllPostsInfos();
   }
 
+  public function newPost($title, $chapo, $content, $date, $auteur_id, $auteur)
+  {
+    return $this->createPost($title, $chapo, $content, $date, $auteur_id, $auteur);
+  }
+
   public function deleteAPost($id)
   {
     return $this->erasePost($id);
