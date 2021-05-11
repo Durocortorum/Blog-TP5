@@ -242,4 +242,40 @@ abstract class Model
         return "true";
         $req->closeCursor();
     }
+
+    protected function erasePost($id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("DELETE FROM posts WHERE id='" . $id . "'");
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
+
+    protected function createPost($title, $chapo, $content, $date, $auteur_id, $auteur)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("INSERT INTO posts (title, chapo, content, date, author_id, author) VALUES ('" . $title . "', '" . $chapo . "', '" . $content . "', '" . $date . "', '" . $auteur_id . "', '" . $auteur . "')");
+        //var_dump($req);
+
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
+
+    protected function updateAPost($id, $chapo, $content, $date, $title)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("UPDATE posts SET title='" . $title . "', chapo='" . $chapo . "', content='" . $content . "', date='" . $date . "' WHERE id=" . $_GET['id']);
+
+        if (!$req->execute()) {
+            var_dump($req->errorInfo());
+        }
+        //$req->execute();
+        return "true";
+        $req->closeCursor();
+    }
 }
