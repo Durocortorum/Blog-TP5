@@ -6,21 +6,28 @@ class PostManager extends Model
 
   //gréer la fonction qui va recuperer
   //tous les articles dans la bdd
-  public function getPosts(){
+  public function getPosts()
+  {
     return $this->getAll('posts', 'Post');
   }
 
-  public function getPost($id){
-      return $this->getOne('posts', 'Post', $id);
-    }
+  public function getPost($id)
+  {
+    return $this->getOne('posts', 'Post', $id);
+  }
 
-    public function getAllPostsInfo(){
-      return $this->getAllPostsInfos();
-    }
-    
-    public function updatePost($id, $chapo, $content, $date, $title)
-    {
-        return $this->updateAPost($id, $chapo, $content, $date, $title);
-    }
-    
+  public function getAllPostsInfo()
+  {
+    return $this->getAllPostsInfos();
+  }
+
+  public function deleteAPost($id)
+  {
+    return $this->erasePost($id);
+  }
+
+  public function updatePost($id, $chapo, $content, $date, $title)
+  {
+    return $this->updateAPost($id, $chapo, $content, $date, $title);
+  }
 }

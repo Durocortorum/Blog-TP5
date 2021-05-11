@@ -243,6 +243,17 @@ abstract class Model
         $req->closeCursor();
     }
 
+    protected function erasePost($id)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("DELETE FROM posts WHERE id='".$id."'");
+        $req->execute();
+        return "true";
+        $req->closeCursor();
+    }
+    
+
     protected function updateAPost($id, $chapo, $content, $date, $title)
     {
         $this->getBdd();
