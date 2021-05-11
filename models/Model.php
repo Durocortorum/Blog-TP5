@@ -163,6 +163,23 @@ abstract class Model
         $req->closeCursor();
     }
 
+    protected function getAllPostsInfos()
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("SELECT * FROM posts");
+        $req->execute();
+
+        //on crée la variable data qui
+        //va cobntenir les données
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            // var contiendra les données sous forme d'objets
+            $var[] = new Post($data);
+        }
+
+        return $var;
+        $req->closeCursor();
+    }
 
     //NEW COMM
     protected function newPostComm($auteur, $post_id, $contenu, $date, $auteur_id, $status)
@@ -210,17 +227,17 @@ abstract class Model
     {
         $this->getBdd();
         $var = [];
-        $req = self::$_bdd->prepare("UPDATE commentaires SET statut='Valide' WHERE id='".$id."'");
+        $req = self::$_bdd->prepare("UPDATE commentaires SET statut='Valide' WHERE id='" . $id . "'");
         $req->execute();
         return "true";
         $req->closeCursor();
     }
-    
+
     protected function eraseComm($id)
     {
         $this->getBdd();
         $var = [];
-        $req = self::$_bdd->prepare("DELETE FROM commentaires WHERE id='".$id."'");
+        $req = self::$_bdd->prepare("DELETE FROM commentaires WHERE id='" . $id . "'");
         $req->execute();
         return "true";
         $req->closeCursor();

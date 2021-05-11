@@ -14,7 +14,10 @@ class PostManager extends Model
       return $this->getOne('posts', 'Post', $id);
     }
 
-
+    public function getAllPostsInfo(){
+      return $this->getAllPostsInfos();
+    }
+    
     
 }
 

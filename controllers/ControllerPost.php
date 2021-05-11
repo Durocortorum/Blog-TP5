@@ -10,15 +10,20 @@ class ControllerPost
 
     public function __construct()
     {
-            extract($_GET);
-             if(isset($view))
-            {
-                $this->post();
-            }
-            else
-            {
-                throw new \Exception("Page Introuvable");
-            }
+        extract($_GET);
+        if(isset($admin) && $_SESSION['redacteur'] == "true")
+        {
+            $this->listPost();
+        }
+
+        else if(isset($view))
+        {
+            $this->post();
+        }
+        else
+        {
+            throw new \Exception("Page Introuvable");
+        }
     }
 
     private function post()
@@ -44,7 +49,17 @@ class ControllerPost
         $this->_view->generate(array('post' => $post, 'commentaires' => $commentaires, 'commPosted' => $commPosted));
     }
 
+    private function listPost()
+    {
+        extract($_POST);
+        extract($_GET);
+        //LISTE DES POSTS : ADMINS
+        $this->_postManager = new postManager;
 
+        $postInfos = $this->_postManager->getAllPostsInfo();
+        $this->_view = new View('Post');
+        $this->_view->generate(array('postInfos' => $postInfos, 'form_msg' => 'Liste Posts', 'form' => '0', 'title' => 'Espace Admin'));
+    }
 
     
 
