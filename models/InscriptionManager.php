@@ -7,4 +7,3 @@ class InscriptionManager extends Model
     return $this->new_user($email, $nom, $prenom, $password);
   }
 }
- ?>

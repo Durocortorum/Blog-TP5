@@ -48,10 +48,7 @@ abstract class Model
         $req = self::$_bdd->prepare('SELECT * FROM ' . $table . ' ORDER BY id desc');
         $req->execute();
 
-        //on crée la variable data qui
-        //va cobntenir les données
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            // var contiendra les données sous forme d'objets
             $var[] = new $obj($data);
         }
 
@@ -62,7 +59,7 @@ abstract class Model
     protected function getOne($table, $obj, $id)
     {
         $this->getBdd();
-        //$var = [];
+        $var = [];
         $req = self::$_bdd->prepare("SELECT id, author, title, chapo, content, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') AS date FROM " . $table . " WHERE id = ?");
         $req->execute(array($id));
         $data = $req->fetch(PDO::FETCH_ASSOC);
@@ -80,10 +77,8 @@ abstract class Model
         $req = self::$_bdd->prepare("SELECT * FROM users WHERE id='" . $user_id . "'");
         $req->execute();
 
-        //on crée la variable data qui
-        //va cobntenir les données
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            // var contiendra les données sous forme d'objets
+      
             $var[] = new User($data);
         }
 
@@ -98,10 +93,7 @@ abstract class Model
         $req = self::$_bdd->prepare("SELECT * FROM users");
         $req->execute();
 
-        //on crée la variable data qui
-        //va cobntenir les données
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            // var contiendra les données sous forme d'objets
             $var[] = new User($data);
         }
 
@@ -117,10 +109,7 @@ abstract class Model
         $req = self::$_bdd->prepare("SELECT * FROM users WHERE email='" . $email . "' AND password='" . $password . "'");
         $req->execute();
 
-        //on crée la variable data qui
-        //va cobntenir les données
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            // var contiendra les données sous forme d'objets
             $var[] = new Connexion($data);
         }
 
@@ -170,10 +159,7 @@ abstract class Model
         $req = self::$_bdd->prepare("SELECT * FROM posts");
         $req->execute();
 
-        //on crée la variable data qui
-        //va cobntenir les données
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            // var contiendra les données sous forme d'objets
             $var[] = new Post($data);
         }
 
@@ -200,7 +186,6 @@ abstract class Model
         $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE post_id='" . $id . "' AND statut='Valide'");
         $req->execute();
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            // var contiendra les données sous forme d'objets
             $var[] = new Commentaire($data);
         }
 
@@ -215,7 +200,6 @@ abstract class Model
         $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE statut='En Attente'");
         $req->execute();
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            // var contiendra les données sous forme d'objets
             $var[] = new Commentaire($data);
         }
 
@@ -258,7 +242,7 @@ abstract class Model
         $this->getBdd();
         $var = [];
         $req = self::$_bdd->prepare("INSERT INTO posts (title, chapo, content, date, author_id, author) VALUES ('" . $title . "', '" . $chapo . "', '" . $content . "', '" . $date . "', '" . $auteur_id . "', '" . $auteur . "')");
-        //var_dump($req);
+
 
         $req->execute();
         return "true";
@@ -274,7 +258,7 @@ abstract class Model
         if (!$req->execute()) {
             var_dump($req->errorInfo());
         }
-        //$req->execute();
+
         return "true";
         $req->closeCursor();
     }

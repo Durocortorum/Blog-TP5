@@ -4,21 +4,23 @@ class Post
 {
 
   private $_id;
-  private $_title; 
+  private $_title;
   private $_author;
   private $_chapo;
   private $_content;
   private $_date;
-  
 
-  public function __construct(array $data){
+
+  public function __construct(array $data)
+  {
     $this->hydrate($data);
   }
 
   //hdratation
-  public function hydrate(array $data){
+  public function hydrate(array $data)
+  {
     foreach ($data as $key => $value) {
-      $method = 'set'.ucfirst($key);
+      $method = 'set' . ucfirst($key);
       if (method_exists($this, $method)) {
         $this->$method($value);
       }
@@ -42,20 +44,20 @@ class Post
     }
   }
 
-   public function setAuthor($author)
+  public function setAuthor($author)
   {
     if (is_string($author)) {
       $this->_author = $author;
     }
   }
 
-   public function setChapo($chapo)
+  public function setChapo($chapo)
   {
     if (is_string($chapo)) {
       $this->_chapo = $chapo;
     }
   }
-    
+
   public function setContent($content)
   {
     if (is_string($content)) {
@@ -65,8 +67,7 @@ class Post
 
   public function setDate($date)
   {
-      $this->_date = $date;
-
+    $this->_date = $date;
   }
 
   //getters
@@ -79,17 +80,17 @@ class Post
   {
     return $this->_title;
   }
-    
+
   public function author()
   {
     return $this->_author;
   }
-    
+
   public function chapo()
   {
     return $this->_chapo;
   }
-    
+
   public function content()
   {
     return $this->_content;
@@ -99,6 +100,4 @@ class Post
   {
     return $this->_date;
   }
-
 }
-

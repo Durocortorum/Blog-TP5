@@ -7,14 +7,16 @@ class Inscription
     private $_email;
     private $_password;
 
-    public function __construct(array $data){
+    public function __construct(array $data)
+    {
         $this->hydrate($data);
     }
 
     //HYDRATATION
-    public function hydrate(array $data){
+    public function hydrate(array $data)
+    {
         foreach ($data as $key => $value) {
-            $method = 'set'.ucfirst($key);
+            $method = 'set' . ucfirst($key);
             if (method_exists($this, $method)) {
                 $this->$method($value);
             }
@@ -78,6 +80,4 @@ class Inscription
     {
         return $this->_password;
     }
-
-
 }

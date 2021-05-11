@@ -8,12 +8,8 @@
 	<meta charset="UTF-8">
 
 
-	<!-- Font -->
-
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
-
-	<!-- Stylesheets -->
 
 	<link href="public/common-css/bootstrap.css" rel="stylesheet">
 
@@ -66,9 +62,9 @@
 				<?php
 				}
 				?>
-			</ul><!-- main-menu -->
+			</ul>
 
-		</div><!-- container -->
+		</div>
 	</header>
 
 
@@ -90,9 +86,8 @@
 							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
 						</ul>
 
-					</div><!-- footer-section -->
-				</div><!-- col-lg-4 col-md-6 -->
-
+					</div>
+				</div>
 
 				<div class="col-lg-4 col-md-6">
 					<div class="footer-section">
@@ -108,11 +103,11 @@
 							<button class="submit-btn" type="submit" name="form_button">Envoyer</button>
 						</form>
 
-					</div><!-- footer-section -->
-				</div><!-- col-lg-4 col-md-6 -->
+					</div>
+				</div>
 
-			</div><!-- row -->
-		</div><!-- container -->
+			</div>
+		</div>
 	</footer>
 
 
