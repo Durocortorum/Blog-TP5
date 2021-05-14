@@ -98,7 +98,7 @@
 							<input class="email-input" name="email" type="text" placeholder="E-mail"><br><br>
 
 							<textarea name="message" placeholder="Message..." cols="40"></textarea><br><br>
-							<button class="submit-btn" type="submit" name="form_button">Envoyer</button>
+							<button class="submit-btn btn btn-primary shadow-sm" type="submit" name="form_button">Envoyer</button>
 						</form>
 
 					</div>
