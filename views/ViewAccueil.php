@@ -1,11 +1,11 @@
 <div class="slider text-center" style="color:white"><br>
   <!-- <img id="imgProfile" class="iio" src="??.jpg" style="border-radius: 8px;"><br> -->
   <h5>Michel DESCOTES</h5>
-  <h6><a href="CV.pdf">Mon CV Téléchargeable</a></h6>
+  <h6><a href="Michel_CV.pdf">Mon CV Téléchargeable</a></h6>
 </div>
 
 <section class="blog-area section">
-  
+
   <div class="container">
     <div class="row">
 
@@ -16,9 +16,21 @@
           <div class="card h-100">
             <!-- single-post -->
             <div class="single-post post-style-1">
-              <div class="blog-image"><img src="public/images/marion-michele-330691.jpg" alt="Blog Image"></div>
+              <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="public/images/Blog.jpg" class="d-block " alt="Blog_Image">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="public/images/programmation.jpg" class="d-block " alt="programmation">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="public/images/developpement.jpg" class="d-block " alt="developpement">
+                  </div>
+                </div>
+              </div>
 
-              <a class="avatar" href="#"><img src="public/images/icons8-team-355979.jpg" alt="Profile Image"></a>
+              <a class="avatar"><img src="public/images/Technology.png" alt="Profile Image"></a>
               <!-- blog-info -->
               <div class="blog-info">
                 <h4 class="title"><a href="post&id=<?= $post->id() ?>&view=1"><b><?= $post->title() ?></b></a></h4>
@@ -35,5 +47,3 @@
     </div>
   </div>
 </section>
-
-
