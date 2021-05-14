@@ -54,8 +54,8 @@
                     <input class="text-center" type="password" class="form-control" placeholder="Mot de passe (confirmation)" name="password_verif" style="width:100%" value="">
                 </div>
             </div>
-                    <br />
-                    <div class="row">
+            <br />
+            <div class="row">
                 <div class="col text-center">
                     <input class="text-center m-2 p-2 btn btn-primary shadow-sm" type="submit" class="form-control" style="width:30%" name="form_button" value="Sauvegarder">
                 </div>
