@@ -1,33 +1,65 @@
 <br><br>
-<h2><?= $title; ?></h2>
+<h2 class="text-center"><?= $title; ?></h2>
 <br>
 <br>
 
-<div class="container">
+<div class="container-fluid">
     <b><i><?= $form_msg; ?></b></i><br>
 
     <?php
     if ($form == 1) {
     ?>
         <form method="post" action="User">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" placeholder="Email" name="email" style="width:40%" value="<?= $infos[0]->email() ?>">
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <label for="email">Email:</label>
+                </div>
+                <div class="col-lg-6 ">
+                    <input type="email" class="form-control" placeholder="Email" name="email" style="width:100%" value="<?= $infos[0]->email() ?>">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <label for="nom">Nom:</label>
+                </div>
+                <div class="col-lg-6 ">
+                    <input class="text-center" type="text" class="form-control" placeholder="Nom" name="nom" style="width:100%" value="<?= $infos[0]->nom() ?>">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <label for="prenom">Prenom:</label>
+                </div>
+                <div class="col-lg-6 ">
+                    <input class="text-center" type="text" class="form-control" placeholder="Prenom" name="prenom" style="width:100%" value="<?= $infos[0]->prenom() ?>">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <label for="password">Mot de passe:</label>
+                </div>
+                <div class="col-lg-6 ">
+                    <input class="text-center" type="password" class="form-control" placeholder="Mot de passe" name="password" style="width:100%" value="<?= $infos[0]->password() ?>">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <label for="passwordConfirm">Mot de passe (confirmation) :</label>
+                </div>
+                <div class="col-lg-6 ">
+                    <input class="text-center" type="password" class="form-control" placeholder="Mot de passe (confirmation)" name="password_verif" style="width:100%" value="">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col text-center">
+                    <input class="text-center m-2 p-2 btn btn-primary shadow-sm" type="submit" class="form-control" style="width:30%" name="form_button" value="Sauvegarder">
+                </div>
 
-            <label for="nom">Nom:</label>
-            <input type="text" class="form-control" placeholder="Nom" name="nom" style="width:40%" value="<?= $infos[0]->nom() ?>">
-
-            <label for="prenom">Prenom:</label>
-            <input type="text" class="form-control" placeholder="Prenom" name="prenom" style="width:40%" value="<?= $infos[0]->prenom() ?>">
-
-            <label for="password">Mot de passe:</label>
-            <input type="password" class="form-control" placeholder="Mot de passe" name="password" style="width:40%" value="<?= $infos[0]->password() ?>">
-
-            <label for="passwordConfirm">Mot de passe (confirmation) :</label>
-            <input type="password" class="form-control" placeholder="Mot de passe (confirmation)" name="password_verif" style="width:40%" value="">
-
-            <br>
-
-            <input type="submit" class="form-control" style="width:40%" name="form_button" value="Sauvegarder">
         </form>
     <?php
     }

@@ -7,9 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 
-
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
 
 	<link href="public/common-css/bootstrap.css" rel="stylesheet">
 
@@ -67,30 +65,30 @@
 		</div>
 	</header>
 
-
 	<?= $content ?>
-
 
 	<footer>
 
 		<div class="container">
 			<div class="row">
 
-				<div class="col-lg-4 col-md-6">
-					<div class="footer-section">
-						<p class="copyright">Tous droits réservés</p>
+				<div class="col-lg-12 col-md-6">
+					<div class="footer-section text-center">
+						<p>Tous droits réservés</p>
 
 						<ul class="icons">
-							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="https://www.facebook.com/DescotesMichel"><i class="ion-social-facebook-outline"></i></a></li>
+							<li><a href="https://twitter.com/home"><i class="ion-social-twitter-outline"></i></a></li>
+							<li><a href="https://www.instagram.com/?hl=fr"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/michel-descotes-92ab0157//?hl=fr"><i class="ion-social-linkedin-outline"></i></a></li>
+							<li><a href="https://github.com/Durocortorum"><i class="ion-social-github-outline"></i></a></li>
 						</ul>
 
 					</div>
 				</div>
 
-				<div class="col-lg-4 col-md-6">
-					<div class="footer-section">
+				<div class="col-lg-12 col-md-6">
+					<div class="footer-section p-2 text-center">
 
 						<h4 class="title"><b>Contactez-Nous</b></h4>
 						<form method="post" action="Accueil">
@@ -100,7 +98,7 @@
 							<input class="email-input" name="email" type="text" placeholder="E-mail"><br><br>
 
 							<textarea name="message" placeholder="Message..." cols="40"></textarea><br><br>
-							<button class="submit-btn" type="submit" name="form_button">Envoyer</button>
+							<button class="submit-btn btn btn-primary shadow-sm" type="submit" name="form_button">Envoyer</button>
 						</form>
 
 					</div>
@@ -109,7 +107,6 @@
 			</div>
 		</div>
 	</footer>
-
 
 	<!-- SCRIPTS -->
 
