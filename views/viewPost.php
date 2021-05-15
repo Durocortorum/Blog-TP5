@@ -1,12 +1,12 @@
-<section class="blog-area section">
+<section class="section">
     <div class="container">
 
-        <h2><?= $title; ?></h2>
+        <h2 class="text-center"><?= $title; ?></h2>
         <br>
         <br>
 
         <div class="form-group">
-            <b><i><?= $form_msg; ?></b></i><br>
+            <h4 class="text-center"><b><?= $form_msg; ?></h4></b><br>
 
             <?php
             if (isset($postInfos)) {

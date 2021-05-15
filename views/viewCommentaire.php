@@ -1,12 +1,9 @@
-<div class="slider">
-    <div class="display-table  center-text">
-        <h1 class="title display-table-cell"></h1>
-    </div>
-</div>
+<br><br>
+<h2 class="text-center">Espace Admin</h2>
 
-<section class="blog-area section">
+<section class="section">
     <div class="container">
-        <h4><b>Commentaires</b></h4><br>
+        <h4 class="text-center"><b>Commentaires</b></h4><br>
 
         <table class="table table-striped">
             <tr>
