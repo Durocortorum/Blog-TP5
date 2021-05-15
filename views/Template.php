@@ -67,11 +67,9 @@
 
 	<?= $content ?>
 
-	<footer>
-
-		<div class="container">
+	<footer style=" background-color:#EDF3F3">
+		<div class="container" style="width:80%; background-color:#EDF3F3">
 			<div class="row">
-
 				<div class="col-lg-12 col-md-6">
 					<div class="footer-section text-center">
 						<p>Tous droits réservés</p>
@@ -86,7 +84,6 @@
 
 					</div>
 				</div>
-
 				<div class="col-lg-12 col-md-6">
 					<div class="footer-section p-2 text-center">
 
@@ -100,10 +97,8 @@
 							<textarea name="message" placeholder="Message..." cols="40"></textarea><br><br>
 							<button class="submit-btn btn btn-primary shadow-sm" type="submit" name="form_button">Envoyer</button>
 						</form>
-
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</footer>
