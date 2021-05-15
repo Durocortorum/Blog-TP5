@@ -3,15 +3,17 @@
 <br>
 <br>
 
-<div class="container-fluid">
-    <b><i><?= $form_msg; ?></b></i><br>
+<div class="container">
+    <div class="text-center">
+        <h4><b><?= $form_msg; ?></h4></b>
+    </div>
 
     <?php
     if ($form == 1) {
     ?>
         <form method="post" action="User">
-            <div class="row">
-                <div class="col-lg-6 text-center">
+            <div class="row text-center">
+                <div class="col-lg-6">
                     <label for="email">Email:</label>
                 </div>
                 <div class="col-lg-6 ">
@@ -19,45 +21,45 @@
                 </div>
             </div>
             <br />
-            <div class="row">
-                <div class="col-lg-6 text-center">
+            <div class="row text-center">
+                <div class="col-lg-6">
                     <label for="nom">Nom:</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input class="text-center" type="text" class="form-control" placeholder="Nom" name="nom" style="width:100%" value="<?= $infos[0]->nom() ?>">
+                    <input type="text" class="form-control" placeholder="Nom" name="nom" style="width:100%" value="<?= $infos[0]->nom() ?>">
                 </div>
             </div>
             <br />
-            <div class="row">
-                <div class="col-lg-6 text-center">
+            <div class="row text-center">
+                <div class="col-lg-6">
                     <label for="prenom">Prenom:</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input class="text-center" type="text" class="form-control" placeholder="Prenom" name="prenom" style="width:100%" value="<?= $infos[0]->prenom() ?>">
+                    <input type="text" class="form-control" placeholder="Prenom" name="prenom" style="width:100%" value="<?= $infos[0]->prenom() ?>">
                 </div>
             </div>
             <br />
-            <div class="row">
-                <div class="col-lg-6 text-center">
+            <div class="row text-center">
+                <div class="col-lg-6">
                     <label for="password">Mot de passe:</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input class="text-center" type="password" class="form-control" placeholder="Mot de passe" name="password" style="width:100%" value="<?= $infos[0]->password() ?>">
+                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" style="width:100%" value="<?= $infos[0]->password() ?>">
                 </div>
             </div>
             <br />
-            <div class="row">
-                <div class="col-lg-6 text-center">
+            <div class="row text-center">
+                <div class="col-lg-6">
                     <label for="passwordConfirm">Mot de passe (confirmation) :</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input class="text-center" type="password" class="form-control" placeholder="Mot de passe (confirmation)" name="password_verif" style="width:100%" value="">
+                    <input type="password" class="form-control" placeholder="Mot de passe (confirmation)" name="password_verif" style="width:100%" value="">
                 </div>
             </div>
             <br />
-            <div class="row">
-                <div class="col text-center">
-                    <input class="text-center m-2 p-2 btn btn-primary shadow-sm" type="submit" class="form-control" style="width:30%" name="form_button" value="Sauvegarder">
+            <div class="row text-center">
+                <div class="col ">
+                    <input class="m-2 p-2 btn btn-primary shadow-sm" type="submit" class="form-control" style="width:30%" name="form_button" value="Sauvegarder">
                 </div>
 
         </form>
@@ -83,7 +85,7 @@
             foreach ($userInfos as $userInfo) :
             ?>
                 <tr>
-                    <td><?= $userInfo->nom(); ?></td>
+                    <td ><?= $userInfo->nom(); ?></td>
                     <td><?= $userInfo->prenom(); ?></td>
                     <td><?= $userInfo->email(); ?></td>
                     <td><a href="user&id_del=<?= $userInfo->id(); ?>&del=1&admin=true">Supprimer</a></td>
