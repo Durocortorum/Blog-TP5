@@ -1,14 +1,26 @@
-<div class="slider text-center" style="color:white"><br>
-  <!-- <img id="imgProfile" class="iio" src="??.jpg" style="border-radius: 8px;"><br> -->
-  <h5>Michel DESCOTES</h5>
-  <h6><a href="Michel_CV.pdf">Mon CV Téléchargeable</a></h6>
-</div>
+<div class="container-fluid">
+  <div class="slider row" style="color:white"><br>
+    <div class="col-xl-6 col-xs-12 text-center">
+      <h3> DESCOTES Michel, Développeur Web</h3>
+      <img class="photo mb-1 mt-1" src="photo.jpg" alt="photoProfile" style="border-radius: 8px; width:150px;height:200px;">
+      <br />
+      <a href="Michel_CV.pdf">Mon CV Téléchargeable</a>
+    </div>
+    <div class="col-xl-6 col-xs-12 text-center p-2">
+      <br />
+      <h3 class="text-white">Bienvenue sur mon blog, si vous aimez le développement web et
+        la programmation en <strong>PHP</strong>, <strong>HTML</strong>
+        ou <strong>CSS</strong> vous êtes au bon endroit.
+      </h3>
+      <br />
+      <h3>Confiez-moi votre projet et j'en fais une réalité !</h3>
+    </div>
 
-<section class="blog-area section">
+  </div>
+
 
   <div class="container">
-    <div class="row">
-
+    <div class="row mt-5">
       <?php
       foreach ($posts as $post) :
       ?>
@@ -32,7 +44,7 @@
 
               <a class="avatar"><img src="public/images/Technology.png" alt="Profile Image"></a>
               <!-- blog-info -->
-              <div class="blog-info p-1">
+              <div class="blog-info text-center p-1">
                 <h4 class="title"><a href="post&id=<?= $post->id() ?>&view=1"><b><?= $post->title() ?></b></a></h4>
                 <h5><?= $post->chapo() ?></h5>
                 <br>
@@ -48,4 +60,5 @@
       <?php endforeach ?>
     </div>
   </div>
-</section>
+
+</div>
