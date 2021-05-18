@@ -15,6 +15,7 @@
 /* ---------------------------------
 1. PRIMARY STYLES
 --------------------------------- */
+.photo{height:10px;width:10px}
 
 html{ font-size: 100%; height: 100%;  overflow-x: hidden; touch-action: manipulation; }
 
@@ -139,7 +140,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 4. SLIDER
 --------------------------------- */
 
-.slider{background-image: url(../../images/slider-1.jpg); background-size: cover; } 
+.slider{ background-image: url(../../images/slider-1.jpg); background-size: cover; }  
  
 
  

@@ -1,8 +1,4 @@
-<div class="slider">
-    <div class="display-table  center-text">
-        <h1 class="title display-table-cell"></h1>
-    </div>
-    <br><br>
+<div>
 
     <section class="container text-center p-5">
         <?php if ($commPosted) {
@@ -75,7 +71,6 @@
         <?php
         foreach ($commentaires as $commentaire) :
         ?>
-
             <u><?= $commentaire->auteur(); ?></u><br>
             <?= $commentaire->contenu(); ?><br>
             Posté le <i><?= $commentaire->date(); ?></i><br><br>
