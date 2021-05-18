@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `commentaires`
 --
 
-DROP TABLE IF EXISTS `commentaires`;
+DROP TABLE IF EXISTS "`commentaires`";
 CREATE TABLE IF NOT EXISTS `commentaires` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
   `post_id` int(50) NOT NULL,

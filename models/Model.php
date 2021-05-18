@@ -51,7 +51,6 @@ abstract class Model
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new $obj($data);
         }
-
         return $var;
         $req->closeCursor();
     }
@@ -64,8 +63,6 @@ abstract class Model
         $req->execute(array($id));
         $data = $req->fetch(PDO::FETCH_ASSOC);
         $var = new $obj($data);
-
-
         return $var;
         $req->closeCursor();
     }
@@ -76,12 +73,10 @@ abstract class Model
         $var = [];
         $req = self::$_bdd->prepare("SELECT * FROM users WHERE id='" . $user_id . "'");
         $req->execute();
-
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
       
             $var[] = new User($data);
         }
-
         return $var;
         $req->closeCursor();
     }
@@ -96,7 +91,6 @@ abstract class Model
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new User($data);
         }
-
         return $var;
         $req->closeCursor();
     }
@@ -112,7 +106,6 @@ abstract class Model
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new Connexion($data);
         }
-
         return $var;
         $req->closeCursor();
     }
@@ -124,7 +117,6 @@ abstract class Model
         $var = [];
         $req = self::$_bdd->prepare("INSERT INTO users (email, prenom, nom, password) VALUES ('" . $email . "', '" . $prenom . "', '" . $nom . "', '" . $password . "')");
         $req->execute();
-
         return "true";
         $req->closeCursor();
     }
@@ -147,7 +139,6 @@ abstract class Model
         $var = [];
         $req = self::$_bdd->prepare("UPDATE users SET email='" . $email . "', prenom='" . $prenom . "', nom='" . $nom . "', password='" . $password . "' WHERE id='" . $id . "'");
         $req->execute();
-
         return "true";
         $req->closeCursor();
     }
@@ -158,11 +149,9 @@ abstract class Model
         $var = [];
         $req = self::$_bdd->prepare("SELECT * FROM posts");
         $req->execute();
-
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new Post($data);
         }
-
         return $var;
         $req->closeCursor();
     }
@@ -183,12 +172,11 @@ abstract class Model
     {
         $this->getBdd();
         $var = [];
-        $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE post_id='" . $id . "' AND statut='Valide'");
+        $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE post_id='" . $id . "' AND statut='Valide' ORDER BY date DESC");
         $req->execute();
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new Commentaire($data);
         }
-
         return $var;
         $req->closeCursor();
     }
@@ -202,7 +190,6 @@ abstract class Model
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new Commentaire($data);
         }
-
         return $var;
         $req->closeCursor();
     }
@@ -242,8 +229,6 @@ abstract class Model
         $this->getBdd();
         $var = [];
         $req = self::$_bdd->prepare("INSERT INTO posts (title, chapo, content, date, author_id, author) VALUES ('" . $title . "', '" . $chapo . "', '" . $content . "', '" . $date . "', '" . $auteur_id . "', '" . $auteur . "')");
-
-
         $req->execute();
         return "true";
         $req->closeCursor();
@@ -258,7 +243,6 @@ abstract class Model
         if (!$req->execute()) {
             var_dump($req->errorInfo());
         }
-
         return "true";
         $req->closeCursor();
     }

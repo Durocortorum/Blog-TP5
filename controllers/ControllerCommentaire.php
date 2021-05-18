@@ -28,7 +28,7 @@ class ControllerCommentaire
         if (isset($id) && $del == 0) {
             $this->_commentaireManager->validAComm($id);
         }
-        //SUPPRESION D'UN COMMENTAIRE
+        //SUPPRESSION D'UN COMMENTAIRE
         else if (isset($id) && $del == 1) {
             $this->_commentaireManager->deleteAComm($id);
         }

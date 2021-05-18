@@ -13,7 +13,6 @@
 
 	<link href="public/common-css/ionicons.css" rel="stylesheet">
 
-
 	<link href="public/layout-1/css/styles.css" rel="stylesheet">
 
 	<link href="public/layout-1/css/responsive.css" rel="stylesheet">
