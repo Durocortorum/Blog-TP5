@@ -2,7 +2,7 @@
 
 </div>
 
-<section class="blog-area section">
+<section class="container blog-area section">
     <h2>Modifier Post</h2><br />
     <h3><?= $post->title() ?></h3><br />
     <h5><?= $post->author() ?></h3>

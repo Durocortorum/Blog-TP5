@@ -20,7 +20,7 @@
                 </div>
     </section>
 
-    <section class="container text-center p-3" style="border-radius: 10px; width:90%; background-color:#ccdae2">
+    <section class="container text-center p-3" style="border-radius: 10px; background-color:#ccdae2">
         <h4><b>Laisser un commentaire</b></h4>
         <form method="post" action="post&view=1&id=<?= $_GET['id'] ?> ">
             </br>
@@ -65,7 +65,7 @@
         </form>
     </section>
 
-    <section class="container text-center mt-5 mb-3" style="border-radius: 10px; width:90%; background-color:#ccdae2">
+    <section class="container text-center mt-5 mb-3" style="border-radius: 10px; background-color:#ccdae2">
 
         <h4 class="p-3"><b>Commentaires</b></h4>
         <?php
