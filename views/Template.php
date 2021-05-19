@@ -74,7 +74,7 @@
 						<p>Tous droits réservés</p>
 
 						<ul class="icons">
-							<li><a href="https://www.facebook.com/DescotesMichel"><i class="ion-social-facebook-outline"></i></a></li>
+							<li><a href="https://www.facebook.com/DescotesMichel"><i class="ion-social-facebook-outline"></i></a></a></li>
 							<li><a href="https://twitter.com/home"><i class="ion-social-twitter-outline"></i></a></li>
 							<li><a href="https://www.instagram.com/?hl=fr"><i class="ion-social-instagram-outline"></i></a></li>
 							<li><a href="https://www.linkedin.com/in/michel-descotes-92ab0157//?hl=fr"><i class="ion-social-linkedin-outline"></i></a></li>
