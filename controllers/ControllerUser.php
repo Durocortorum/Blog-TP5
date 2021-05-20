@@ -33,7 +33,7 @@ class ControllerUser
 
     private function userPage()
     {
-        extract($_POST);
+        filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_NUMBER_INT);
         extract($_GET);
         //FORMULAIRE DE CONTACT
         if (isset($form_button)) {

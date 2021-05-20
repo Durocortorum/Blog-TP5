@@ -24,8 +24,8 @@ class ControllerConnexion
 
     private function connexion()
     {
-        extract($_POST);
-        extract($_GET);
+        filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_NUMBER_INT);
+        filter_input(INPUT_GET, 'var_name', FILTER_SANITIZE_NUMBER_INT);
         if (isset($email) && isset($password)) {
             // var_dump("ok");
             $this->_connexionManager = new ConnexionManager;

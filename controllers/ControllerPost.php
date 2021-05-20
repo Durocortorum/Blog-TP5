@@ -10,7 +10,7 @@ class ControllerPost
 
     public function __construct()
     {
-        extract($_GET);
+        filter_input(INPUT_GET, 'var_name', FILTER_SANITIZE_NUMBER_INT);
         if (isset($admin) && $_SESSION['redacteur'] == "true") {
             $this->listPost();
         } else if (isset($update) && $_SESSION['redacteur'] == "true") {
@@ -24,7 +24,7 @@ class ControllerPost
 
     private function post()
     {
-        extract($_POST);
+        filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_NUMBER_INT);
         extract($_GET);
         //AFFICHAGE D'UN POST SEUL
         $this->_commentaireManager = new CommentaireManager;
@@ -46,7 +46,7 @@ class ControllerPost
 
     private function listPost()
     {
-        extract($_POST);
+        filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_NUMBER_INT);
         extract($_GET);
         //LISTE DES POSTS : ADMINS
         $this->_postManager = new postManager;

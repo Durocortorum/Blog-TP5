@@ -20,7 +20,7 @@ class ControllerCommentaire
 
     private function commentaire()
     {
-        extract($_POST);
+        filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_NUMBER_INT);
         extract($_GET);
         $this->_commentaireManager = new CommentaireManager;
 
