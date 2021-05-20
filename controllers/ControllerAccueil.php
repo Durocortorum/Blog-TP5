@@ -18,7 +18,6 @@ class ControllerAccueil
 
     private function accueil()
     {
-        extract($_POST);
         //FORMULAIRE DE CONTACT ? SOUMIS
         if (isset($form_button)) {
             //VERIFICATION: PRENOM

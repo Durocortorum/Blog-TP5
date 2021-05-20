@@ -20,7 +20,6 @@ class ControllerCommentaire
 
     private function commentaire()
     {
-        extract($_POST);
         extract($_GET);
         $this->_commentaireManager = new CommentaireManager;
 
