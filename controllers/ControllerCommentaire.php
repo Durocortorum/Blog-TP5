@@ -20,12 +20,8 @@ class ControllerCommentaire
 
     private function commentaire()
     {
-        if(isset($_POST)){
-            extract($_POST);
-        }
-        if(isset($_GET)){
-            extract($_GET);
-        }
+        extract($_POST);
+        extract($_GET);
         $this->_commentaireManager = new CommentaireManager;
 
         //VALIDATION D'UN COMMENTAIRE

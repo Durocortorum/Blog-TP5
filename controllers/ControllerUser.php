@@ -33,12 +33,8 @@ class ControllerUser
 
     private function userPage()
     {
-        if(isset($_POST)){
-            extract($_POST);
-        }
-        if(isset($_GET)){
-            extract($_GET);
-        }
+        extract($_POST);
+        extract($_GET);
         //FORMULAIRE DE CONTACT
         if (isset($form_button)) {
             //VERIFICATION DU CHAMP EMAIL
