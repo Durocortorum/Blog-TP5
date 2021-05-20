@@ -14,7 +14,7 @@ class ControllerUser
 
     public function __construct()
     {
-        if (!empty($_GET['admin'])) {
+        if (isset($_GET['admin'])) {
             $admin = $_GET['admin'];
         }
         if (isset($url) && count($url) < 1) {
