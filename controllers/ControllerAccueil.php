@@ -18,7 +18,7 @@ class ControllerAccueil
 
     private function accueil()
     {
-        extract($_POST);
+        filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_NUMBER_INT);
         //FORMULAIRE DE CONTACT ? SOUMIS
         if (isset($form_button)) {
             //VERIFICATION: PRENOM

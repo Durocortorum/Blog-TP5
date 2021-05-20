@@ -6,8 +6,8 @@
       <br />
       <a href="Michel_CV.pdf">Mon CV Téléchargeable</a>
     </div>
-    <div class="col-xl-7 col-xs-12 text-center p-2">
-      <br /><br/>
+    <div class="col-xl-7 col-xs-12 text-center p-3">
+      <br /><br />
       <h4 class="text-white">Bienvenue sur mon blog, si vous aimez le développement web et
         la programmation en <strong>PHP</strong>, <strong>HTML</strong>
         ou <strong>CSS</strong> vous êtes au bon endroit.
@@ -15,7 +15,6 @@
       <br />
       <h4>Confiez-moi votre projet et j'en fais une réalité !</h4>
     </div>
-
   </div>
 
   <div class="container">
@@ -36,7 +35,7 @@
                     <img src="public/images/programmation.jpg" class="d-block" style="height:200px" alt="programmation">
                   </div>
                   <div class="carousel-item">
-                    <img src="public/images/developpement2.jpg" class="d-block" style="height:200px" alt="developpement">
+                    <img src="public/images/developpement.jpg" class="d-block" style="height:200px" alt="developpement">
                   </div>
                 </div>
               </div>
@@ -59,5 +58,4 @@
       <?php endforeach ?>
     </div>
   </div>
-
 </div>
