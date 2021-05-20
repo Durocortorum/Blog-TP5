@@ -387,12 +387,12 @@ button.swiper-pagination-bullet {
   background: #000000;
 }
 /* Scrollbar */
-.swiper-scrollbar {
+/* .swiper-scrollbar {
   border-radius: 10px;
   position: relative;
   -ms-touch-action: none;
   background: rgba(0, 0, 0, 0.1);
-}
+} */
 .swiper-container-horizontal > .swiper-scrollbar {
   position: absolute;
   left: 1%;
@@ -595,7 +595,7 @@ button.swiper-pagination-bullet {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.swiper-container-coverflow .swiper-wrapper {
+/* .swiper-container-coverflow .swiper-wrapper {
   /* Windows 8 IE 10 fix */
   -ms-perspective: 1200px;
-}
+} */

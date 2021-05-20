@@ -10,6 +10,9 @@
 
 
             <div class="form-group">
+            <?php
+                if (isset($_GET['id']))
+            ?>
                 <form method="post" action="Post&update=1&id=<?= $_GET['id'] ?>">
                     <?php if ($form == 1) {
 
