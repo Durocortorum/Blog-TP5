@@ -11,11 +11,10 @@
 
             <div class="form-group">
             <?php
-                if (isset($_GET['id']))
+                if (isset($_GET['id'])){
             ?>
                 <form method="post" action="Post&update=1&id=<?= $_GET['id'] ?>">
                     <?php if ($form == 1) {
-
                     ?>
                         <label for="title">Titre:</label><br/>
                         <input class="text-center" type="text" class="form-control" placeholder="Titre du Post" value="<?= $post->title() ?>" name="title" style="width:40%"><br><br/>
@@ -32,7 +31,7 @@
                         <input class="btn btn-primary"type="submit" value="Modifier">
 
                     <?php
-                    }
+                    }}
                     ?>
                 </form>
 
