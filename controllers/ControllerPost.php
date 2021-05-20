@@ -10,7 +10,10 @@ class ControllerPost
 
     public function __construct()
     {
-        extract($_GET);
+       
+        if(isset($_GET)){
+            extract($_GET);
+        }
         if (isset($admin) && $_SESSION['redacteur'] == "true") {
             $this->listPost();
         } else if (isset($update) && $_SESSION['redacteur'] == "true") {
@@ -24,8 +27,12 @@ class ControllerPost
 
     private function post()
     {
-        extract($_POST);
-        extract($_GET);
+        if(isset($_POST)){
+            extract($_POST);
+        }
+        if(isset($_GET)){
+            extract($_GET);
+        }
         //AFFICHAGE D'UN POST SEUL
         $this->_commentaireManager = new CommentaireManager;
         $this->_postManager = new PostManager;
@@ -46,8 +53,12 @@ class ControllerPost
 
     private function listPost()
     {
-        extract($_POST);
-        extract($_GET);
+        if(isset($_POST)){
+            extract($_POST);
+        }
+        if(isset($_GET)){
+            extract($_GET);
+        }
         //LISTE DES POSTS : ADMINS
         $this->_postManager = new postManager;
 
@@ -63,8 +74,12 @@ class ControllerPost
 
     private function updatePost()
     {
-        extract($_POST);
-        extract($_GET);
+        if(isset($_POST)){
+            extract($_POST);
+        }
+        if(isset($_GET)){
+            extract($_GET);
+        }
         //AFFICHAGE D'UN POST SEUL
         //$this->_commentaireManager = new CommentaireManager;
         $this->_postManager = new PostManager;

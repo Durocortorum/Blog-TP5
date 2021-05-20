@@ -1,19 +1,19 @@
-# blog-mvc
+# BLOG-TP5-MVC
 
-## Ce code est rédigé dans le cadre de mon Parcours Developpeur PHP/Symfony
-## Sur OpenClassRooms
+### Ce code est rédigé dans le cadre de mon Parcours Developpeur PHP/Symfony
+### Sur OpenClassRooms
+ 
+### C'est un blog possédant une architecture MVC, développé en PHP
 
-## C'est un blog possédant une architecture MVC, développé en PHP
+### il est possible de s'y connecter, d'y poster des Posts et des Commentaires, et également de l'administrer avec un compte privilégié pour valider ou supprimer les commentaires
+### Mon CV au format PDF est téléchargeable via un lien sur la page d'accueil
 
-## il est possible de s'y connecter, d'y poster des Posts et des Commentaires, et également de l'administrer avec un compte privilégié pour valider ou supprimer les commentaires
-## Mon CV au format PDF est téléchargeable via un lien sur la page d'accueil
-
-### CONFIGURATION
+# CONFIGURATION
 
 Version PHP: 7.4.0
 Base de donnée: MYSQL
 
-### INSTALLATION
+# INSTALLATION
 
 1. Cloner le repo
 2. Configurer la connexion à la BDD
@@ -25,4 +25,4 @@ Base de donnée: MYSQL
    6. Exemple Prénom-admin, Nom-Admin, email-admin@admin.fr, password-admin dans la table users = qui peut créer ou modifier des Posts et valider ou non des commentaires
 3. Installation terminée
 
-### Code Codacy:
+# Code Codacy:

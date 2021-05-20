@@ -19,8 +19,12 @@ class ControllerNewPost
 
     private function newPost()
     {
-        extract($_POST);
-        extract($_GET);
+        if(isset($_POST)){
+            extract($_POST);
+        }
+        if(isset($_GET)){
+            extract($_GET);
+        }
         $return_msg = "Remplissez le formulaire";
         $form = 1;
         

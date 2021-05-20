@@ -17,7 +17,9 @@ class ControllerInscription
         if (isset($url) && count($url) > 1) {
             throw new \Exception("Page introuvable", 1);
         } else {
-            extract($_POST);
+            if(isset($_POST)){
+                extract($_POST);
+            }
             //FORMULAIRE DE CONTACT
             if (isset($form_button)) {
                 //VERIFICATION DU CHAMP EMAIL
