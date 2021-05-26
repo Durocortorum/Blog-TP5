@@ -8,12 +8,12 @@
 ### il est possible de s'y connecter, d'y poster des Posts et des Commentaires, et également de l'administrer avec un compte privilégié pour valider ou supprimer les commentaires
 ### Mon CV au format PDF est téléchargeable via un lien sur la page d'accueil
 
-# CONFIGURATION
+# Configuration
 
 Version PHP: 7.4.0
 Base de donnée: MYSQL
 
-# INSTALLATION
+# Installation
 
 1. Cloner le repo
 2. Configurer la connexion à la BDD
@@ -25,5 +25,5 @@ Base de donnée: MYSQL
    6. Exemple Prénom-admin, Nom-Admin, email-admin@admin.fr, password-admin dans la table users = qui peut créer ou modifier des Posts et valider ou non des commentaires
 3. Installation terminée
 
-# Code Codacy:
+# Code Qualité Codacy:
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/76fbfc67f9a84efbad6ef15b5eb5322f)](https://app.codacy.com/gh/Durocortorum/Blog-TP5?utm_source=github.com&utm_medium=referral&utm_content=Durocortorum/Blog-TP5&utm_campaign=Badge_Grade_Settings)
