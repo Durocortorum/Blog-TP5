@@ -1,7 +1,5 @@
 # BLOG-TP5-MVC
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/76fbfc67f9a84efbad6ef15b5eb5322f)](https://app.codacy.com/gh/Durocortorum/Blog-TP5?utm_source=github.com&utm_medium=referral&utm_content=Durocortorum/Blog-TP5&utm_campaign=Badge_Grade_Settings)
-
 ### Ce code est rédigé dans le cadre de mon Parcours Developpeur PHP/Symfony
 ### Sur OpenClassRooms
  
@@ -28,3 +26,4 @@ Base de donnée: MYSQL
 3. Installation terminée
 
 # Code Codacy:
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/76fbfc67f9a84efbad6ef15b5eb5322f)](https://app.codacy.com/gh/Durocortorum/Blog-TP5?utm_source=github.com&utm_medium=referral&utm_content=Durocortorum/Blog-TP5&utm_campaign=Badge_Grade_Settings)
