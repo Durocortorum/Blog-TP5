@@ -13,11 +13,16 @@ class ControllerInscription
 
     public function __construct()
     {
-
         if (isset($url) && count($url) > 1) {
             throw new \Exception("Page introuvable", 1);
         } else {
-            extract($_POST);
+            $email = filter_input(INPUT_POST, 'email') !== null ? filter_var(filter_input(INPUT_POST, 'email'), FILTER_SANITIZE_STRING) : '';
+            $nom = filter_input(INPUT_POST, 'nom') !== null ? filter_var(filter_input(INPUT_POST, 'nom'), FILTER_SANITIZE_STRING) : '';
+            $prenom = filter_input(INPUT_POST, 'prenom') !== null ? filter_var(filter_input(INPUT_POST, 'prenom'), FILTER_SANITIZE_STRING) : '';
+            $password = filter_input(INPUT_POST, 'password') !== null ? filter_var(filter_input(INPUT_POST, 'password'), FILTER_SANITIZE_STRING) : '';
+            $password_verif = filter_input(INPUT_POST, 'password_verif') !== null ? filter_var(filter_input(INPUT_POST, 'password_verif'), FILTER_SANITIZE_STRING) : '';
+            $form_button = filter_input(INPUT_POST, 'form_button') !== null ? filter_var(filter_input(INPUT_POST, 'form_button'), FILTER_SANITIZE_STRING) : '';
+
             //FORMULAIRE DE CONTACT
             if (isset($form_button)) {
                 //VERIFICATION DU CHAMP EMAIL

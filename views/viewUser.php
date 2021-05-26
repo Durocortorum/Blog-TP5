@@ -17,7 +17,7 @@
                     <label for="email">Email:</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input type="email" class="form-control" placeholder="Email" name="email" style="width:100%" value="<?= $infos[0]->email() ?>">
+                    <input type="email" class="form-control" placeholder="Email" name="email" style="width:100%" value="<?= filter_var($infos[0]->email(), FILTER_SANITIZE_STRING) ?>">
                 </div>
             </div>
             <br />
@@ -26,7 +26,7 @@
                     <label for="nom">Nom:</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input type="text" class="form-control" placeholder="Nom" name="nom" style="width:100%" value="<?= $infos[0]->nom() ?>">
+                    <input type="text" class="form-control" placeholder="Nom" name="nom" style="width:100%" value="<?= filter_var($infos[0]->nom(), FILTER_SANITIZE_STRING) ?>">
                 </div>
             </div>
             <br />
@@ -35,7 +35,7 @@
                     <label for="prenom">Prenom:</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input type="text" class="form-control" placeholder="Prenom" name="prenom" style="width:100%" value="<?= $infos[0]->prenom() ?>">
+                    <input type="text" class="form-control" placeholder="Prenom" name="prenom" style="width:100%" value="<?= filter_var($infos[0]->prenom(), FILTER_SANITIZE_STRING) ?>">
                 </div>
             </div>
             <br />
@@ -44,7 +44,7 @@
                     <label for="password">Mot de passe:</label>
                 </div>
                 <div class="col-lg-6 ">
-                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" style="width:100%" value="<?= $infos[0]->password() ?>">
+                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" style="width:100%" value="<?= filter_var($infos[0]->password(), FILTER_SANITIZE_STRING) ?>">
                 </div>
             </div>
             <br />
@@ -70,10 +70,7 @@
     <?php
     if (isset($userInfos)) {
     ?>
-
         <br><br>
-
-
         <table class="table table-striped">
             <tr>
                 <th>Nom</th>
@@ -85,10 +82,10 @@
             foreach ($userInfos as $userInfo) :
             ?>
                 <tr>
-                    <td ><?= $userInfo->nom(); ?></td>
-                    <td><?= $userInfo->prenom(); ?></td>
-                    <td><?= $userInfo->email(); ?></td>
-                    <td><a href="user&id_del=<?= $userInfo->id(); ?>&del=1&admin=true">Supprimer</a></td>
+                    <td><?= filter_var($userInfo->nom(), FILTER_SANITIZE_STRING) ?></td>
+                    <td><?= filter_var($userInfo->prenom(), FILTER_SANITIZE_STRING) ?></td>
+                    <td><?= filter_var($userInfo->email(), FILTER_SANITIZE_STRING) ?></td>
+                    <td><a href="user&id_del=<?= filter_var($userInfo->id(), FILTER_SANITIZE_STRING) ?>&del=1&admin=true">Supprimer</a></td>
                 </tr>
 
         <?php
@@ -96,5 +93,4 @@
         }
         ?>
         </table>
-
 </div>

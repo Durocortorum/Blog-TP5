@@ -18,12 +18,12 @@
             foreach ($commentaires as $commentaire) :
             ?>
                 <tr>
-                    <td><?= $commentaire->auteur(); ?></td>
-                    <td><?= $commentaire->contenu(); ?></td>
-                    <td><?= $commentaire->date(); ?></td>
-                    <td><a href="post&id=<?= $commentaire->post_id(); ?>"><?= $commentaire->post_id(); ?></a></td>
-                    <td><a href="commentaire&id=<?= $commentaire->id(); ?>&del=0">Valider</a></td>
-                    <td><a href="commentaire&id=<?= $commentaire->id(); ?>&del=1">Refuser</a></td>
+                    <td><?= filter_var($commentaire->auteur(), FILTER_SANITIZE_STRING) ?></td>
+                    <td><?= filter_var($commentaire->contenu(), FILTER_SANITIZE_STRING) ?></td>
+                    <td><?= filter_var($commentaire->date(), FILTER_SANITIZE_STRING) ?></td>
+                    <td><a href="post&id=<?= filter_var($commentaire->post_id(), FILTER_SANITIZE_STRING) ?>"><?= $commentaire->post_id(); ?></a></td>
+                    <td><a href="commentaire&id=<?= filter_var($commentaire->id(), FILTER_SANITIZE_STRING) ?>&del=0">Valider</a></td>
+                    <td><a href="commentaire&id=<?= filter_var($commentaire->id(), FILTER_SANITIZE_STRING) ?>&del=1">Refuser</a></td>
                 </tr>
 
             <?php

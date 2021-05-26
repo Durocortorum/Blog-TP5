@@ -4,7 +4,7 @@
       <h4> DESCOTES Michel, Développeur Web</h4>
       <img class="photo mb-1 mt-1" src="photo.jpg" alt="photoProfile" style="border-radius: 8px; width:130px;height:180px;">
       <br />
-      <a href="Michel_CV.pdf">Mon CV Téléchargeable</a>
+      <a href="Michel_CV.pdf" target="_blank">Mon CV Téléchargeable</a>
     </div>
     <div class="col-xl-7 col-xs-12 text-center p-3">
       <br /><br />
@@ -43,12 +43,12 @@
               <a class="avatar" style="display:block;margin-left:auto;margin-right: auto"><img src="public/images/Technology.png" alt="Profile Image"></a>
               <!-- blog-info -->
               <div class="blog-info text-center p-1">
-                <h4 class="title"><a href="post&id=<?= $post->id() ?>&view=1"><b><?= $post->title() ?></b></a></h4>
-                <h5><?= $post->chapo() ?></h5>
+                <h4 class="title"><a href="post&id=<?= $post->id() ?>&view=1"><b><?= filter_var($post->title(), FILTER_SANITIZE_STRING) ?></b></a></h4>
+                <h5><?= filter_var($post->chapo(), FILTER_SANITIZE_STRING) ?></h5>
                 <br>
                 <div style="background-color:cadetblue; display:block;margin-left:auto;margin-right: auto; width:80%;border-radius: 10px">
-                  <h6><?= $post->author() ?></h6>
-                  <h6>Modifié le <?= $post->date() ?></h6>
+                  <h6><?= filter_var($post->author(), FILTER_SANITIZE_STRING) ?></h6>
+                  <h6>Modifié le <?= filter_var($post->date(), FILTER_SANITIZE_STRING) ?></h6>
                 </div>
               </div>
             </div>

@@ -25,11 +25,11 @@
                     foreach ($postInfos as $postInfo) :
                     ?>
                         <tr>
-                            <td><?= $postInfo->title(); ?></td>
-                            <td><?= $postInfo->author(); ?></td>
-                            <td><?= $postInfo->date(); ?></td>
-                            <td><a href="post&id=<?= $postInfo->id(); ?>&update=true">Modifier</a></td>
-                            <td><a href="post&id_del=<?= $postInfo->id(); ?>&del=1&admin=true">Supprimer</a></td>
+                            <td><?= filter_var($postInfo->title(), FILTER_SANITIZE_STRING) ?></td>
+                            <td><?= filter_var($postInfo->author(), FILTER_SANITIZE_STRING) ?></td>
+                            <td><?= filter_var($postInfo->date(), FILTER_SANITIZE_STRING) ?></td>
+                            <td><a href="post&id=<?= filter_var($postInfo->id(), FILTER_SANITIZE_STRING) ?>&update=true">Modifier</a></td>
+                            <td><a href="post&id_del=<?= filter_var($postInfo->id(), FILTER_SANITIZE_STRING) ?>&del=1&admin=true">Supprimer</a></td>
                         </tr>
 
                 <?php

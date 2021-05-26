@@ -18,6 +18,11 @@ class ControllerAccueil
 
     private function accueil()
     {
+        $nom_prenom = filter_input(INPUT_POST, 'nom_prenom') !== null ? filter_var(filter_input(INPUT_POST, 'nom_prenom'), FILTER_SANITIZE_STRING) : '';
+        $email = filter_input(INPUT_POST, 'email') !== null ? filter_var(filter_input(INPUT_POST, 'email'), FILTER_SANITIZE_STRING) : '';
+        $message = filter_input(INPUT_POST, 'message') !== null ? filter_var(filter_input(INPUT_POST, 'message'), FILTER_SANITIZE_STRING) : '';
+        $form_button = filter_input(INPUT_POST, 'form_button') !== null ? filter_var(filter_input(INPUT_POST, 'form_button'), FILTER_SANITIZE_STRING) : '';
+
         //FORMULAIRE DE CONTACT ? SOUMIS
         if (isset($form_button)) {
             //VERIFICATION: PRENOM

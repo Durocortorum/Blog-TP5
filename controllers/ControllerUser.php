@@ -4,7 +4,6 @@ require_once 'views/View.php';
 class ControllerUser
 
 {
-
     private $_userManager;
     private $_view;
     private $_email;
@@ -30,11 +29,18 @@ class ControllerUser
         }
     }
 
-
     private function userPage()
     {
-        extract($_POST);
-        extract($_GET);
+        $email = filter_input(INPUT_POST, 'email') !== null ? filter_var(filter_input(INPUT_POST, 'email'), FILTER_SANITIZE_STRING) : '';
+        $nom = filter_input(INPUT_POST, 'nom') !== null ? filter_var(filter_input(INPUT_POST, 'nom'), FILTER_SANITIZE_STRING) : '';
+        $prenom = filter_input(INPUT_POST, 'prenom') !== null ? filter_var(filter_input(INPUT_POST, 'prenom'), FILTER_SANITIZE_STRING) : '';
+        $password = filter_input(INPUT_POST, 'password') !== null ? filter_var(filter_input(INPUT_POST, 'password'), FILTER_SANITIZE_STRING) : '';
+        $password_verif = filter_input(INPUT_POST, 'password_verif') !== null ? filter_var(filter_input(INPUT_POST, 'password_verif'), FILTER_SANITIZE_STRING) : '';
+        $form_button = filter_input(INPUT_POST, 'form_button') !== null ? filter_var(filter_input(INPUT_POST, 'form_button'), FILTER_SANITIZE_STRING) : '';
+
+        if (isset($_GET)) {
+            extract($_GET);
+        }
         //FORMULAIRE DE CONTACT
         if (isset($form_button)) {
             //VERIFICATION DU CHAMP EMAIL
@@ -88,7 +94,9 @@ class ControllerUser
     //AFFICHAGE LISTE DES UTILISATEURS (ADMINS)
     private function listUser()
     {
-        extract($_GET);
+        if (isset($_GET)) {
+            extract($_GET);
+        }
         $this->_userManager = new UserManager;
 
         if (isset($id_del) && $del == 1) {

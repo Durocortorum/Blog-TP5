@@ -1,4 +1,3 @@
-<div class="slider"></div>
 
 <section class="blog-area  section">
     <div class="container">

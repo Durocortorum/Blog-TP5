@@ -60,22 +60,21 @@
                 <input type="hidden" name="date" value="<?= date("Y-m-d H:i:s"); ?>">
                 <input type="hidden" name="newComm" value="true">
                 <input type="hidden" name="post_id" value="<?= $_GET['id']; ?>">
-
                 <input class="btn btn-primary" style="margin-left:auto;margin-right: auto" type="submit" name="form_button" value="OK">
         </form>
     </section>
 
     <section class="container text-center mt-5 mb-3" style="border-radius: 10px; background-color:#ccdae2">
-
         <h4 class="p-3"><b>Commentaires</b></h4>
         <?php
         foreach ($commentaires as $commentaire) :
         ?>
-            <u><?= $commentaire->auteur(); ?></u><br>
-            <?= $commentaire->contenu(); ?><br>
-            Posté le <i><?= $commentaire->date(); ?></i><br><br>
+            <u><?= filter_var($commentaire->auteur(), FILTER_SANITIZE_STRING) ?></u><br>
+            <?= filter_var($commentaire->contenu(), FILTER_SANITIZE_STRING) ?><br>
+            Posté le <i><?= filter_var($commentaire->date(), FILTER_SANITIZE_STRING) ?></i><br><br>
 
         <?php
         endforeach
         ?>
     </section>
+</div>

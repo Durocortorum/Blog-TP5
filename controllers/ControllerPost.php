@@ -24,15 +24,22 @@ class ControllerPost
 
     private function post()
     {
-        extract($_POST);
-        extract($_GET);
+        $auteur = filter_input(INPUT_POST, 'auteur') !== null ? filter_var(filter_input(INPUT_POST, 'auteur'), FILTER_SANITIZE_STRING) : '';
+        $post_id = filter_input(INPUT_POST, 'post_id') !== null ? filter_var(filter_input(INPUT_POST, 'post_id'), FILTER_SANITIZE_STRING) : '';
+        $contenu = filter_input(INPUT_POST, 'contenu') !== null ? filter_var(filter_input(INPUT_POST, 'contenu'), FILTER_SANITIZE_STRING) : '';
+        $date = filter_input(INPUT_POST, 'date') !== null ? filter_var(filter_input(INPUT_POST, 'date'), FILTER_SANITIZE_STRING) : '';
+        $auteur_id = filter_input(INPUT_POST, 'auteur_id') !== null ? filter_var(filter_input(INPUT_POST, 'auteur_id'), FILTER_SANITIZE_STRING) : '';
+
+        if (isset($_GET)) {
+            extract($_GET);
+        }
         //AFFICHAGE D'UN POST SEUL
         $this->_commentaireManager = new CommentaireManager;
         $this->_postManager = new PostManager;
         $commPosted = false;
 
         //SI : POSTER UN COMMENTAIRE
-        if (isset($newComm)) {
+        if (filter_input(INPUT_POST, 'newComm') !== null) {
             $this->_commentaireManager->newComm($auteur, $post_id, $contenu, $date, $auteur_id, 'En Attente');
             $commPosted = true;
         }
@@ -46,8 +53,9 @@ class ControllerPost
 
     private function listPost()
     {
-        extract($_POST);
-        extract($_GET);
+        if (isset($_GET)) {
+            extract($_GET);
+        }
         //LISTE DES POSTS : ADMINS
         $this->_postManager = new postManager;
 
@@ -63,21 +71,24 @@ class ControllerPost
 
     private function updatePost()
     {
-        extract($_POST);
-        extract($_GET);
+        if (isset($_GET)) {
+            extract($_GET);
+        }
         //AFFICHAGE D'UN POST SEUL
-        //$this->_commentaireManager = new CommentaireManager;
         $this->_postManager = new PostManager;
+        $post=$this->_postManager->getPost($id);
         $form = 1;
         //SI : POSTER UN COMMENTAIRE
-        if (isset($updatePost)) {
+        if (filter_input(INPUT_POST, 'updatePost')!==null) {
+            $title = filter_input(INPUT_POST, 'title') !== null ? filter_var(filter_input(INPUT_POST, 'title'), FILTER_SANITIZE_STRING) : '';
+            $chapo = filter_input(INPUT_POST, 'chapo') !== null ? filter_var(filter_input(INPUT_POST, 'chapo'), FILTER_SANITIZE_STRING) : '';
+            $content = filter_input(INPUT_POST, 'content') !== null ? filter_var(filter_input(INPUT_POST, 'content'), FILTER_SANITIZE_STRING) : '';
+            $date = filter_input(INPUT_POST, 'date') !== null ? filter_var(filter_input(INPUT_POST, 'date'), FILTER_SANITIZE_STRING) : '';
             $chapo = htmlentities(htmlspecialchars($chapo));
             $title = htmlentities(htmlspecialchars($title));
             $content = htmlentities(htmlspecialchars($content));
             $content = str_replace("'", "&#39", $content);
             $content = str_replace("’", "&#39", $content);
-
-            //var_dump($content);
             $date = htmlspecialchars($date);
             $this->_postManager->updatePost($id, $chapo, $content, $date, $title);
         }

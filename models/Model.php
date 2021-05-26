@@ -185,7 +185,7 @@ abstract class Model
     {
         $this->getBdd();
         $var = [];
-        $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE statut='En Attente'");
+        $req = self::$_bdd->prepare("SELECT * FROM commentaires WHERE statut='En Attente' ORDER BY date DESC");
         $req->execute();
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new Commentaire($data);
